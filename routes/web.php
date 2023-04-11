@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\VueJsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,10 @@ Route::controller(ClientController::class)->group(function (){
     Route::post('create' , 'addClient');
     Route::post('update' , 'update');
     Route::post('delete' , 'delete');
+});
+Route::controller(VueJsController::class)->group(function (){
+    Route::get('home' , 'vueJs')->name('a');
+    Route::get('niveau' , 'NiveauIndex')->name('niveau');
+    Route::get('etudiant/list' , 'EtudiantIndex')->name('etudiant.list');
+    Route::get('etudiant/create' , 'EtudiantCreate')->name('etudiant.create');
 });
